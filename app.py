@@ -589,12 +589,15 @@ def generate_pdf_content(df_merged, df_real, percentual_geral, total_realizado, 
             color = '#28a745'
             status = '✅'
         elif ritmo <= 1:
+            color = '#3498db'
+            status = '🔵'
+        elif ritmo <= 1.5:
             color = '#2ecc71'
             status = '🟢'
-        elif ritmo <= 1.5:
+        elif ritmo <= 2:
             color = '#f1c40f'
             status = '🟡'
-        elif ritmo <= 2:
+        elif ritmo <= 3:
             color = '#e67e22'
             status = '🟠'
         else:
@@ -608,7 +611,7 @@ def generate_pdf_content(df_merged, df_real, percentual_geral, total_realizado, 
                     <div class="ritmo-name">{row['Colaborador(a)'][:18]}</div>
                     <div class="ritmo-container">
                         <div class="ritmo-fill" style="width: {width}%; background: {color};"></div>
-                        <div class="ritmo-line" style="left: {1/max_ritmo*100}%; background: #2ecc71;"></div>
+                        <div class="ritmo-line" style="left: {1.5/max_ritmo*100}%; background: #2ecc71;"></div>
                         <div class="ritmo-line" style="left: {2/max_ritmo*100}%; background: #e74c3c;"></div>
                     </div>
                     <div class="ritmo-value" style="color: {color};">{status} {ritmo:.1f}h/dia</div>
